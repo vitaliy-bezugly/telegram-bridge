@@ -1,0 +1,6 @@
+@TelegramBridge_HostAddress = http://localhost:5095
+
+GET {{TelegramBridge_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
