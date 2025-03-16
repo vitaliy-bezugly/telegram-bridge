@@ -19,7 +19,7 @@ public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavio
         {
             return await next();
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is not OperationCanceledException && ex is not TaskCanceledException)
         {
             var requestName = typeof(TRequest).Name;
 

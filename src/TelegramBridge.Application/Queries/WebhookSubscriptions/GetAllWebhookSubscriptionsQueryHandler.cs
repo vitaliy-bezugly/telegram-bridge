@@ -11,6 +11,12 @@ public class GetAllWebhookSubscriptionsQueryHandler(IRepository<WebhookSubscript
     public Task<PaginatedList<WebhookSubscriptionEntity>> Handle(GetAllWebhookSubscriptionsQuery request, CancellationToken cancellationToken)
     {
         var query = repository.GetQueryable(cancellationToken);
-        return PaginatedList<WebhookSubscriptionEntity>.CreateAsync(query, request.PageNumber, request.PageSize, cancellationToken);
+        return PaginatedList<WebhookSubscriptionEntity>.CreateAsync(
+            query, 
+            request.PageNumber, 
+            request.PageSize, 
+            subscription => subscription.Id,  
+            true, 
+            cancellationToken);
     }
 }

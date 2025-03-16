@@ -1,17 +1,15 @@
-using System;
-
 namespace TelegramBridge.Application.Common.Exceptions;
 
 public class NotFoundException<T> : Exception
 {
     public NotFoundException(Guid id) 
-        : base($"{typeof(T).FullName} with {id} was not found.")
+        : base($"{typeof(T).Name} with {id} was not found.")
     {
         Id = id;
     }
     
     public NotFoundException(Guid id, Exception innerException) 
-        : base($"{typeof(T).FullName} with {id} was not found.", innerException)
+        : base($"{typeof(T).Name} with {id} was not found.", innerException)
     {
         Id = id;
     }
