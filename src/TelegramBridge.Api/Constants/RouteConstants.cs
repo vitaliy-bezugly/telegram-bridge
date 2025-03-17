@@ -11,6 +11,11 @@ public static class RouteConstants
         public const string GetById = $"{BasePath}/webhooks/{{id:guid}}";
     }
 
+    public static class TelegramUpdate
+    {
+        public const string ReceiveUpdate = $"{BasePath}/telegram/update";
+    }
+
     public static class Ping
     {
         public const string Get = $"{BasePath}/ping";

@@ -29,14 +29,11 @@ public class GlobalExceptionHandler : IExceptionHandler
         CancellationToken cancellationToken)
     {
         _logger.LogError(exception, "An exception occurred: {ExceptionMessage}", exception.Message);
-
-        // Try to find and execute the appropriate handler
         if (await TryExecuteHandler(httpContext, exception))
         {
             return true;
         }
 
-        // If no specific handler found, use default handler
         await HandleDefaultException(httpContext, exception);
         return true;
     }

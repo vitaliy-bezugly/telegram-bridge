@@ -13,6 +13,7 @@ public static class ServicesConfigurator
     {
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient<IWebhookValidationService, WebhookValidationService>();
+        services.AddTransient<IDispatcherService, DispatcherService>();
         
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
